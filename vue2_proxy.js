@@ -11,8 +11,6 @@ class Vue {
 
     /**
      * 将数据设置为 observable
-     * @param {obj} obj
-     * @param {function} cb
      */
     observer(obj, cb) {
         const that = this;
@@ -26,18 +24,19 @@ class Vue {
 
     /**
      * 响应式处理
-     * @param {object} obj
-     * @param {string} key
-     * @param {*} val
-     * @param {function} cb
      */
     defineReactive(obj, key, val, cb) {
         Object.defineProperty(obj, key, {
             enumerable: true,
             configurable: true,
-            get() {},
+            get() {
+                return val;
+            },
             set(newVal) {
+                console.log('监听到值变化了 ', val, ' --> ', newVal);
                 cb();
+
+                val = newVal;
             }
         });
     }
@@ -69,7 +68,7 @@ class Vue {
 const vm = new Vue({
     el: '#app',
     data: {
-        text: 'text',
+        text1: 'text1',
         text2: 'text2'
     },
     render() {
@@ -77,5 +76,9 @@ const vm = new Vue({
     }
 });
 
+console.log('vm.text1 before', vm.text1);
+
 // 添加了代理之后，就可以用 vm.text 代替 vm._data.text 了
-vm.text += 1;
+vm.text1 += 1;
+
+console.log('vm.text1 after', vm.text1);
