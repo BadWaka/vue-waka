@@ -1,0 +1,23 @@
+{
+  "name": "vue-waka",
+  "version": "1.0.0",
+  "description": "自己实现 vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BadWaka/vue-waka.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BadWaka/vue-waka/issues"
+  },
+  "homepage": "https://github.com/BadWaka/vue-waka#readme",
+  "dependencies": {
+    "vue": "^2.5.13"
+  }
+}
